@@ -2,13 +2,12 @@ pipeline {
     agent any
 
     tools {
-        // Install the Maven version configured as "M398" and add it to the path.
-        // to install this go to configure > tools > maven at end > install using apache
+        // Install the Maven version configured as "M3" and add it to the path.
         maven "M398"
     }
 
     stages {
-      stage('Build') {
+      stage('mvn version print') {
             steps {
               sh 'echo "print version"'
               sh 'mvn --version'
