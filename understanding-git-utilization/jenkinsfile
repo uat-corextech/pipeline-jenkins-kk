@@ -16,7 +16,9 @@ pipeline {
 
         stage('build stage') {
             steps {
-                git branch: 'main', url: 'https://github.com/spring-projects/spring-petclinic.git'
+                // if i am putting this jenkinsfile in the same project repo,
+                // it will automatically checkout this repo new revision.
+               // git branch: 'main', url: 'https://github.com/spring-projects/spring-petclinic.git'
                 sh 'mvn clean package -DskipTests=true'
             }
         }
