@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    tools {
+        // Uses Maven installation configured in Jenkins as "M398"
+        maven "M398"
+    }
+
+    stages {
+        stage('mvn version print') {
+            steps {
+                sh 'echo "print version"'
+                sh 'mvn --version'
+            }
+        }
+
+        stage('build stage') {
+            steps {
+                git branch: 'main', url: 'https://github.com/spring-projects/spring-petclinic.git'
+                sh 'mvn clean package -DskipTests=true'
+            }
+        }
+
+        stage('unit test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+    }
+}
