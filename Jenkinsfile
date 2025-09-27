@@ -19,14 +19,14 @@ pipeline {
                 // it will automatically checkout this repo new revision.
                // git branch: 'main', url: 'https://github.com/spring-projects/spring-petclinic.git'
                 sh 'mvn clean package -DskipTests=true'
-                archiveArtifacts '/home/tushar/agent1/workspace/pipeline-jenkins-kk_main/target/spring-petclinic-*.jar'
+                archiveArtifacts 'target/spring-petclinic-*.jar'
             }
         }
 
         stage('unit test') {
             steps {
                 sh 'mvn test'
-                junit(testResults: '/home/tushar/agent1/workspace/pipeline-jenkins-kk_main/target/surefire-reports/TEST-*.xml', keepProperties: true, keepTestNames: true)
+                junit(testResults: 'target/surefire-reports/TEST-*.xml', keepProperties: true, keepTestNames: true)
             }
         }
     }
