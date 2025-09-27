@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    tools {
+        // Install the Maven version configured as "M398" and add it to the path.
+        // to install this go to configure > tools > maven at end > install using apache
+        maven "M398"
+    }
+
+    stages {
+      stage('Build') {
+            steps {
+              sh 'echo "print version"'
+              sh 'mvn --version'
+            }
+        }
+    }
+}
