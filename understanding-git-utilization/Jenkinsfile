@@ -22,6 +22,7 @@ pipeline {
                     }
                 }
             }
+       }
         stage('build stage') {
             steps {
                 // if i am putting this jenkinsfile in the same project repo,
