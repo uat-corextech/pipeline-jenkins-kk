@@ -20,6 +20,7 @@ pipeline {
                 // it will automatically checkout this repo new revision.
                // git branch: 'main', url: 'https://github.com/spring-projects/spring-petclinic.git'
                 sh 'mvn clean package -DskipTests=true'
+                sh 'sleep 60'
             }
         }
 
